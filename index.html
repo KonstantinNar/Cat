@@ -59,6 +59,9 @@
             <button class="card__like">
                 <i class="fa-solid fa-heart fa-2x"></i>
             </button>
+            <button class="card__btn">
+                <i class="fa-solid fa-trash"></i>
+            </button>
         </div>
     </template>
     <div class="popup">
@@ -74,21 +77,73 @@
                     <input type="number" class="form__input" name="age" placeholder="Возраст">
                     <input type="text" class="form__input" name="name" required="" placeholder="Имя">
                     <input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10">
-                    <textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
+                    <textarea name="description" class="form__input form__textarea" maxlength="20"
+                        placeholder="Описание"></textarea>
                     <label class="form__checkbox-wrap">
-                        <input type="checkbox" name="favourite" class="form__checkbox " placeholder="">
+                        <input type="checkbox" name="favorite" class="form__checkbox " placeholder="">
                         <span class="form__label">Любимчик</span>
                         <span class="form__fake-checkbox"><i class="fa-regular fa-circle-check"></i></span>
                     </label>
-                    <input type="url" class="form__input form__image_link" name="img_link" placeholder="Ссылка на фото">
+                    <input type="url" class="form__input form__image_link" name="image" placeholder="Ссылка на фото">
                     <button type="submit" class="form__btn btn">Добавить котика</button>
                 </form>
             </div>
         </div>
     </div>
+    <div class="info">
+        <div class="info__container">
+            <div class="info__body">
+                <div class="info__container-img">
+                    <img class="info__img text__content-image" src="" alt="">
+                </div>
+                <div class="info__text text">
+                    <div class="text__min-item">
+                        <p class="text__title text__name">Имя</p>
+                        <div class="text__container">
+                            <p class="text__content-name"></p>
+                        </div>
+                        <p class="text__title text__id">Id</p>
+                        <div class="text__container">
+                            <p class="text__content-id"></p>
+                        </div>
+                        <p class="text__title text__rate">Рейтинг</p>
+                        <div class="text__container">
+                            <p class="text__content-rate"></p>
+                        </div>
+                        <p class="text__title text__age">Возраст</p>
+                        <div class="text__container">
+                            <p class="text__content-age"></p>
+                        </div>
+                    </div>
+                    <div class="text__max-item">
+                        <p class="text__title text__description">Описание</p>
+                        <div class="text__container-description">
+                            <p class="text__content-description"></p>
+                        </div>
+                    </div>
+                </div>
+                <button class="info__close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="info__buttons">
+                    <button class="info__btn text__content-favorite" id="like">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                    <button class="info__btn" id="edit">
+                        <i class="fa-solid fa-gear"></i>
+                    </button>
+                    <button class="info__btn" id="delite">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/scripts/api.js"></script>
     <script src="/scripts/cats.js"></script>
     <script src="/scripts/card.js"></script>
     <script src="/scripts/popup.js"></script>
+    <script src="/scripts/info.js"></script>
     <script src="/scripts/script.js"></script>
 </body>
 

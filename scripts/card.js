@@ -14,12 +14,15 @@ class Cats {
         let cardImg = this.element.querySelector(".card__img")
         let cardName = this.element.querySelector(".card__name")
         let cardLike = this.element.querySelector(".card__like")
+        let cardDelite = this.element.querySelector(".card__btn")
 
         cardImg.src = this._dataCat.image
         cardName.innerText = this._dataCat.name
+        cardName.id = `${this._dataCat.id}`
         if (!this._dataCat.favorite) {
             cardLike.remove()
         }
+        cardDelite.id = `${this._dataCat.id}`
 
         return this.element
     }
