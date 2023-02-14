@@ -24,9 +24,17 @@ class Cats {
         }
         cardDelite.id = `${this._dataCat.id}`
 
+        let deleteBtn = this.element.querySelector(".card__btn")
+        deleteBtn.addEventListener('click', (e) => {
+            api.deleteCatById(this._dataCat.id).then(() => {
+                const elem = document.getElementById(this._dataCat.id)
+                console.log(elem.parentNode.parentNode.remove());
+            })
+        })
+
         return this.element
     }
 
 }
 
-let newCat = new Cats(cats[0], ".main__tamplate")
+// let newCat = new Cats(cats[0], ".main__tamplate")

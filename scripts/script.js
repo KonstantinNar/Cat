@@ -4,11 +4,12 @@ function createCat(znach) {
     document.querySelector(".main__cards").append(newAddCat)
 }
 
-api.getAllCats().then((data) =>
+api.getAllCats().then((data) => {
     data.forEach((cat) => {
         createCat(cat)
+        localStorage.setItem(`${cat.id}`, JSON.stringify(cat))
     })
-);
+});
 
 const popupAddCat = new Popup('popup');
 popupAddCat.setEvent()

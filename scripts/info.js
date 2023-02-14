@@ -22,7 +22,38 @@ class Info {
                 }
             }
         }
+    }
 
+    delete(id) {
+        let btnDelete = document.querySelector('#delete')
+        btnDelete.addEventListener('click', () => {
+            api.deleteCatById(id).then(() => {
+                const elem = document.getElementById(id)
+                elem.parentNode.parentNode.remove();
+            })
+            localStorage.removeItem(id)
+            this.close();
+        })
+
+    }
+
+    like(id) {
+        let btnLike = document.querySelector('#like')
+        let elem = document.getElementById(id)
+        btnLike.addEventListener('click', (e) => {
+            console.log(e);
+            if (elem.parentNode.nextElementSibling.className === "card__like") {
+                api.updateCatById(id, { favorite: false }).then((data) => {
+                    btnLike.style.color = "var(--text-light-color)"
+                })
+            } else {
+                api.updateCatById(id, { favorite: true }).then((data) => {
+                    btnLike.style.color = "red"
+                })
+            }
+        }, {
+            once: true,
+        })
     }
 
     _escape(event) {
@@ -56,6 +87,8 @@ class Info {
                 api.getCatById(event.target.id).then((data) => {
                     this.setCat(data)
                 })
+                this.like(event.target.id)
+                this.delete(event.target.id)
             }
         })
     }
